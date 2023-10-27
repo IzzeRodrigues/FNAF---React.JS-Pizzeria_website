@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* faça ocupar a tela inteira */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.telaPadrao
+{
+  width: 99.1vw;
+  max-width: 100vw;
+  min-height: 100vh;
+}
+
+:root {
+    /* cores */
+  --grey-50: #f8fafc;
+  --grey-900: #0f172a;
+  --black: #222;
+  --white: #fff;
+
+  --backgroundColor: var(--grey-50);
+
+  --max-width: 1120px;
+  --fixed-width: 600px;
+
+  /* box shadow*/
+  --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+body {
+  background: var(--backgroundColor);
+  color: var(--grey-900);
+}
+/* CSS NAVBAR */
+
+
+.nav-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  
+}
+.logo {
+  height: 200px;
+  position: fixed;
+}
+
+.links-container {
+  overflow: hidden;
+  background-color: white;
+  box-shadow: var( --shadow-2);
+}
+
+.links {
+  display: flex;
+}
+
+
+/* RESPONSIVIDADE */
+@media screen and (min-width: 800px) {
+  .background{
+    position: fixed;
+   }
+  .nav-center {
+    margin: 0 auto;
+  }
+  .nav-header {
+    padding: 0;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .links-container {
+    height: auto !important;
+  }
+  .coluna{
+    display: flex;
+    flex-direction: row;
+  }
+  .link{
+    font-family: Arial;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    margin: 15px;
+    font-size: 17px;
+    color:black ;
+  }
+  .texto{
+    font-family: Arial;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    margin: 15px;
+    font-size: 17px;
+    color:black ;
+  }
+  .button{
+    border-radius: 1rem;
+    border: none;
+    background-color: black;
+    height: 35px;
+  }
+  .color{
+    color: #fff;
+  }
+
+  .conteudo{
+    width: 100% ;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
+ 
+   .chica{
+    background-image: url('assets/images/chica.png');
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position-x: 90%;
+    background-position-y: 9%;
+  }
+  .freddy{
+    background-image: url('assets/images/freddy.png');
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position-x: 2%;
+    background-position-y: 40%;
+  }
+  .bonnie{
+    background-image: url('assets/images/bonnie.png');
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position-x: 90%;
+    background-position-y: 40%;
+  }
+
+}
+
+
+@media screen and (max-width: 800px) {
+  
+  .coluna{
+    display: flex;
+    flex-direction: column;
+  }
+  .link ,.button{
+    font-family: Arial;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    margin: 15px;
+    font-size: 17px;
+    color:black ;
+    border: none;
+    background: none;
+    text-align:right;
+    width: 40vw;
+  }
+  .links{
+    justify-content: end;
+  }
+  .botao{
+    width: 100%;
+    font-family: Arial;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    font-size: 17px;
+    color:black ;
+  }
+  .nav-header2 {
+    align-items: center;
+    justify-content: end;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .chica{
+    background-image: url('assets/images/chica.png');
+    background-repeat: no-repeat;
+    background-size: 35%;
+    background-position-x: 90%;
+    background-position-y: 9%;
+  }
+  .freddy{
+    background-image: url('assets/images/freddy.png');
+    background-repeat: no-repeat;
+    background-size: 35%;
+    background-position-x: 90%;
+    background-position-y: 9%;
+  }
+  .bonnie{
+    background-image: url('assets/images/bonnie.png');
+    background-repeat: no-repeat;
+    background-size: 35%;
+    background-position-x: 90%;
+    background-position-y: 9%;
+  }
+
+}
+
+.drop_shadow{
+  filter: drop-shadow(-1px 5px 15px #fffc99);
+}
+
+.location{
+  background-image: url('assets/images/location.png');
+  background-size: 3.2%;
+  background-repeat: no-repeat;
+  background-position-x: 2%;
+  background-position-y: 50%;
+}
+.background_nav{
+  background-image: url('assets/images/banner.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-top: 9.3%;
+
+}
+.sombra_pizza {
+  box-shadow: 0px 0px 4px 0px #d4d4d4 inset;
+}
