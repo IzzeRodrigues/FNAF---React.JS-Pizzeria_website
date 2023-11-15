@@ -10,7 +10,7 @@ function novoPost(){
         const post = {title,body,userId:1};
 
         try {
-            await axios.get('https://jsonplaceholder.typicode.com/posts', {body:post,});
+            await axios.post('https://jsonplaceholder.typicode.com/posts', {body:post,},{});
 
         } catch (error) {
             console.log(error);
@@ -25,7 +25,7 @@ function novoPost(){
             <label htmlFor="title"></label>
             <input type="text" name="title" id="title" placeholder="digite o titulo" onChange={(e) => setTitle(e.target.value)}/>
             <label htmlFor="body"></label>
-            <textarea name="body" id="body" placeholder="digite o conteudo" onChange={(e)   => setBody (e.target.value)}></textarea>
+            <textarea name="body" id="body" placeholder="digite o conteudo" onChange={(e) => setBody (e.target.value)}></textarea>
             <input type="submit" value="criar post"/>
            </form>
         </div>

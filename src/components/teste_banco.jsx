@@ -16,7 +16,7 @@ export default function ListUser() {
     const handleSubmit = (event) => {
         event.preventDefault();
  
-        axios.post('http://localhost/api-slim', inputs).then(function(response){
+        axios.post('http://localhost/piloto_freddys/api-slim', inputs).then(function(response){
             console.log(response.data);
             navigate('/');
         });

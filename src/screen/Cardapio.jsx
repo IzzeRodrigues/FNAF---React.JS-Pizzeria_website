@@ -1,16 +1,14 @@
 import Navbar from "../components/Navbar_double"
 import banner from '../assets/images/banner_final.jpg'
 import card from '../assets/images/card1.jpg'
-import pepper from '../assets/images/pepper.jpg'
 import Footer from "../components/Footer"
-import { pizzas } from "./Pizzas"
 import { useState, useEffect } from "react"
 
 const Cardapio = () => {
     const [banco_pizzas, setUser] = useState([]);
 
     function data() {
-        fetch('http://localhost/api-slim/pizzas')
+        fetch('http://localhost/piloto_freddys/api-slim/pizzas')
         .then ((response) => response.json())
         .then ((json) => setUser(json))
     }
@@ -25,10 +23,10 @@ const Cardapio = () => {
                 <div className="background_nav py-8">
                     <div className="flex justify-between container mx-auto">
                         <div>
-                            <p className="font-medium text-gray-600">Para ofertas exclusivas<button className="ms-5 px-6 py-1 rounded-full bg-blue-800 text-white font-semibold ">Criar conta</button></p>
+                            <p className="font-medium text-gray-600">Para ofertas exclusivas<button className="ms-5 px-6 py-1 rounded-full bg-blue-800 text-white font-semibold "><a href="/CriarConta">Criar conta</a></button></p>
                         </div>
                         <div>
-                            <p className="font-medium text-white">Já tem uma conta?<a className="ms-2 text-red-400 underline font-medium">Entrar</a></p>
+                            <p className="font-medium text-white">Já tem uma conta?<a href="/entrar" className="ms-2 text-red-400 underline font-medium">Entrar</a></p>
                         </div>
                     </div>
                 </div>
@@ -70,7 +68,7 @@ const Cardapio = () => {
                                                 </div>
                                                 <hr className="opacity-75 w-full my-3" />
                                                 <div className="flex justify-end">
-                                                    <button className="rounded-full py-1 px-4 b outline outline-offset-2 outline-1  hover:outline-4 transition-all duration-100 outline-black font-medium mt-4">Personalizar</button>
+                                                    <button className="rounded-full py-1 px-4 b outline outline-offset-2 outline-1  hover:outline-4 transition-all duration-100 outline-black font-medium mt-4"><a href="/pedido">Fazer Pedido</a></button>
                                                 </div>
                                         </div>)}
                                 </div>

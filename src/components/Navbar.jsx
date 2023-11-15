@@ -27,14 +27,14 @@ const Navbar = () => {
             <div className='links-container w-[8rem] rounded-bl-lg'>
             <ul className='links' ref={linksRef}>
               <li className='coluna alinhador'>
-                <a className='link' href="/Cardápio">Entrar</a>
-                <button className='button'><a className='color botao texto' href='/criar_conta'>Criar Conta</a></button>
+                <a className='link' href="/entrar">Entrar</a>
+                <button className='button'><a className='color botao texto' href='/CriarConta'>Criar Conta</a></button>
               </li>
             </ul>
             </div> 
         </div>
       <div className='md:flex hidden row w-[18rem] me-[12rem] '>
-        <a className='link' href="/Cardápio">Entrar</a>
+        <a className='link' href="/entrar">Entrar</a>
         <button className='button flex self-center'><a className='color botao texto flex self-center ' href='/CriarConta'>Criar Conta</a></button>
       </div>
       </div>

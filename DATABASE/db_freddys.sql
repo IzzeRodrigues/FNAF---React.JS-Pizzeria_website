@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Nov-2023 às 02:50
+-- Tempo de geração: 15-Nov-2023 às 02:48
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -31,11 +31,19 @@ USE `db_freddys`;
 
 CREATE TABLE `tb_cadastros` (
   `id_cadastrado` int(11) NOT NULL,
-  `nm_usuário` varchar(50) NOT NULL,
+  `nm_usuario` varchar(50) NOT NULL,
   `nm_email` varchar(50) NOT NULL,
   `cd_senha` varchar(12) NOT NULL,
-  `priv_cadastrado` varchar(20) NOT NULL
+  `priv_cadastro` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_cadastros`
+--
+
+INSERT INTO `tb_cadastros` (`id_cadastrado`, `nm_usuario`, `nm_email`, `cd_senha`, `priv_cadastro`) VALUES
+(5, 'Izze Rodrigues', 'isabelle@email.com', '1352123132', 'cliente'),
+(22, 'isa', '', '123', '');
 
 -- --------------------------------------------------------
 
@@ -84,7 +92,7 @@ ALTER TABLE `tb_pizzas`
 -- AUTO_INCREMENT de tabela `tb_cadastros`
 --
 ALTER TABLE `tb_cadastros`
-  MODIFY `id_cadastrado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cadastrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `tb_pizzas`
