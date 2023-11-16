@@ -1,6 +1,8 @@
 import Navbar from "../components/Navbar_double"
 import banner from '../assets/images/banner_final.jpg'
-import card from '../assets/images/card1.jpg'
+import card from '../assets/images/1.jpg'
+import card2 from '../assets/images/2.jpg'
+import card3 from '../assets/images/3.jpg'
 import Footer from "../components/Footer"
 import { useState, useEffect } from "react"
 
@@ -38,9 +40,9 @@ const Cardapio = () => {
                         <div className=' mt-10 w-full'>
                             <p className="font-medium text-2xl">🔥 Dá uma olhada nessas ofertas!</p>
                             <div className="flex justify-between mt-10 gap-4">
-                                <button className=""><img className="rounded-xl" src={card} /></button>
-                                <button className=""><img className="rounded-xl" src={card} /></button>
-                                <button className=""><img className="rounded-xl" src={card} /></button>
+                                <button className="overflow-hidden h-[13rem] rounded-2xl"><img className="" src={card} /></button>
+                                <button className="overflow-hidden h-[13rem] rounded-2xl"><img className="" src={card2} /></button>
+                                <button className="overflow-hidden h-[13rem] rounded-2xl"><img className="" src={card3} /></button>
                             </div>
                         </div>
                         <div className='mt-10 w-full'>

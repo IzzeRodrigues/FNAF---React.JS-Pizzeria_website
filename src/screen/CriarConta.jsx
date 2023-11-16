@@ -22,6 +22,41 @@ const CriarConta = () => {
         }
     }
 
+    function verTipo() {
+        const tipoUsuario = [];
+        if (login == 'cliente'){
+            tipoUsuario.push(
+                <div>
+                    <div>
+                        <p className="ms-6 text-lg text-gray-600">CEP</p>
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="text" name="nome" id="nome" onChange={(e) => setName(e.target.value)} placeholder="Insira seu CEP" />
+                    </div>
+                    <div>
+                        <p className="ms-6 text-lg text-gray-600">Rua</p>
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="text" name="email" id="email" onChange={(e) => setEmail(e.target.value)}  placeholder="Digite o nome da sua Rua" />
+                    </div>
+                    <div>
+                        <p className="ms-6 text-lg text-gray-600">Número</p>
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} placeholder="Digite o número da sua residência" />
+                    </div>
+                    <div>
+                        <p className="ms-6 text-lg text-gray-600">Bairro</p>
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="text" name="email" id="email" onChange={(e) => setEmail(e.target.value)}  placeholder="Digite o nome do seu Bairro" />
+                    </div>
+                    <div>
+                        <p className="ms-6 text-lg text-gray-600">Cidade</p>
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} placeholder="Digite o nome da sua Cidade" />
+                    </div>
+                    <div>
+                        <p className="ms-6 text-lg text-gray-600">Estado</p>
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} placeholder="Digite o nome do seu Estado" />
+                    </div>
+                </div>
+            )
+            return(tipoUsuario)
+        }
+    }
+
       return (
         <div className="telaPadrao overflow-hidden bg-amber-50">
             <div className="">
@@ -30,7 +65,7 @@ const CriarConta = () => {
             <div className="w-8/12 mx-auto">
                 <div className="flex justify-center mt-24">
                     <div className="w-6/12 flex justify-center">
-                        <img className="" src={empresa} />
+                        <img className="h-[54rem]" src={empresa} />
                     </div>
                     <div className="w-6/12 flex flex-col ms-[8rem] mt-20 h-full">
                         <p className="font-medium text-3xl">Criar Minha Conta</p>
@@ -58,6 +93,9 @@ const CriarConta = () => {
                                                 <option value="cliente">Sou Cliente</option>
                                             </select>
                                         </div>
+                                    </div>
+                                    <div>
+                                        {verTipo()}
                                     </div>
                                 </div>
                                 <div className="flex flex-col justify-around h-[12rem]">

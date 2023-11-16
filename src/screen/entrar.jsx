@@ -30,7 +30,7 @@ const CriarConta = () => {
             <div className="w-8/12 mx-auto">
                 <div className="flex justify-center mt-24">
                     <div className="w-6/12 flex justify-center">
-                        <img className="" src={empresa} />
+                        <img className="h-[54rem]" src={empresa} />
                     </div>
                     <div className="w-6/12 flex flex-col ms-[8rem] mt-20 h-full">
                         <p className="font-medium text-3xl">Entrar na Minha Conta</p>

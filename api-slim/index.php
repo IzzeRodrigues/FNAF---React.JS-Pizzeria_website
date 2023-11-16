@@ -35,11 +35,10 @@ function getUser(Request $request, Response $response, array $args){
     $login =  $usuario["body"]["login"];
     $sql = "INSERT INTO tb_cadastros(nm_usuario, nm_email, cd_senha, priv_cadastro) VALUES('$nome', '$email', '$senha', '$login')";
     $stmt = getConn()->query($sql);
-
 };
-function seeUser(Request $request, Response $response, array $args){
-    $sql = "SELECT * FROM tb_users";
- 
+
+function getPedido(Request $request, Response $response, array $args){
+    
 };
 
 $app->run(); 
