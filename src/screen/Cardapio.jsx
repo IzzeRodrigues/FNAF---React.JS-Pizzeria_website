@@ -22,7 +22,7 @@ const Cardapio = () => {
         <div className="telaPadrao overflow-hidden bg-red-50">
             <div className="">
                 <Navbar />
-                <div className="background_nav py-8">
+                <div className="background_nav py-7">
                     <div className="flex justify-between container mx-auto">
                         <div>
                             <p className="font-medium text-gray-600">Para ofertas exclusivas<button className="ms-5 px-6 py-1 rounded-full bg-blue-800 text-white font-semibold "><a href="/CriarConta">Criar conta</a></button></p>

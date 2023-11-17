@@ -14,7 +14,7 @@ const CriarConta = () => {
         const post = {'name': name, 'senha': senha, 'email': email, 'login': login};
 
         try {
-            await axios.post('http://localhost/piloto_freddys/api-slim/users', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
+            await axios.post('http://localhost/piloto_freddys/api-slim/users', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}.then(alert('Usuário criado!')));
 
         } catch (error) {
             console.log(error);

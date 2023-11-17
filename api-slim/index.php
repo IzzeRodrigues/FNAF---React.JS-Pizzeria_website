@@ -12,6 +12,8 @@ $app -> get('/', function (Request $request, Response $response, array $args){
 
 $app -> get('/pizzas','getPizzas');
 $app -> post('/users','getUser');
+$app -> post('/pedidos','getPedido');
+
 
 
 function getConn(){
@@ -38,7 +40,11 @@ function getUser(Request $request, Response $response, array $args){
 };
 
 function getPedido(Request $request, Response $response, array $args){
-    
+    $sabores = $request->getParsedBody();
+    $nome = $sabores["body"]["name"];
+    $valor =  $sabores["body"]["valor"];
+    $sql = "INSERT INTO tb_pedidos(nm_pedido, vl_pedido) VALUES('$nome', '$valor')";
+    $stmt = getConn()->query($sql);
 };
 
 $app->run(); 

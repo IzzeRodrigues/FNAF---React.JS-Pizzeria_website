@@ -22,6 +22,7 @@ const CriarConta = () => {
         }
     }
 
+
       return (
         <div className="telaPadrao overflow-hidden bg-amber-50">
             <div className="">
