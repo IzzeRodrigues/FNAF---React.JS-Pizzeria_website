@@ -5,19 +5,27 @@ import card2 from '../assets/images/2.jpg'
 import card3 from '../assets/images/3.jpg'
 import Footer from "../components/Footer"
 import { useState, useEffect } from "react"
+import { useRef } from "react"
 
 const Cardapio = () => {
     const [banco_pizzas, setUser] = useState([]);
+    const [banco_teste, setTeste] = useState([]);
+
 
     function data() {
         fetch('http://localhost/piloto_freddys/api-slim/pizzas')
         .then ((response) => response.json())
         .then ((json) => setUser(json))
+        .then ((json) => setTeste(json))
+
     }
     useEffect(() => {
         data();
     }, []);
 
+
+    {banco_teste.map((banco) => 
+       const [ pizza+banco.id_pizza, setPizza+banco.id_pizza ] = useState ([]);
     return (
         <div className="telaPadrao overflow-hidden bg-red-50">
             <div className="">
@@ -70,7 +78,7 @@ const Cardapio = () => {
                                                 </div>
                                                 <hr className="opacity-75 w-full my-3" />
                                                 <div className="flex justify-end">
-                                                    <button className="rounded-full py-1 px-4 b outline outline-offset-2 outline-1  hover:outline-4 transition-all duration-100 outline-black font-medium mt-4"><a href="/pedido">Fazer Pedido</a></button>
+                                                    <button className="rounded-full py-1 px-4 b outline outline-offset-2 outline-1  hover:outline-4 transition-all duration-100 outline-black font-medium mt-4" name={pizza.id}><a href="/pedido">Fazer Pedido</a></button>
                                                 </div>
                                         </div>)}
                                 </div>
@@ -83,7 +91,7 @@ const Cardapio = () => {
             <Footer />
         </div>
 
-    );
+    ); )}
 };
 
 export default Cardapio

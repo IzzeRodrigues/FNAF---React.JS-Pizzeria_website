@@ -13,6 +13,7 @@ $app -> get('/', function (Request $request, Response $response, array $args){
 $app -> get('/pizzas','getPizzas');
 $app -> post('/users','getUser');
 $app -> post('/pedidos','getPedido');
+$app -> get('/pedidos/{id}', 'getPizza');
 
 
 
@@ -28,8 +29,20 @@ function getPizzas(Request $request, Response $response, array $args){
     return $response;
 };
 
+function getPizza(Request $request, Response $response, array $args){
+    $id = $args['id'];
+    $conn = getConn();
+    $sql = "SELECT * FROM tb_pizzas WHERE id_pizza=:id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam('id',$id);
+    $stmt->execute();
+
+    $pizza = $stmt->fetchObject();
+    $response->getBody()->write(json_encode($pizza));
+    return $response;
+};
+
 function getUser(Request $request, Response $response, array $args){
-    
     $usuario = $request->getParsedBody();
     $nome = $usuario["body"]["name"];
     $email =  $usuario["body"]["email"];
