@@ -7,36 +7,39 @@ import { LuMapPin } from 'react-icons/lu'
 import { CgProfile } from 'react-icons/cg'
 import { RiBearSmileLine } from 'react-icons/ri'
 import { GiFullPizza } from 'react-icons/gi'
-import Frango from '/src/assets/images/frango-e-requeijao-v1.jpg'
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { useRef } from "react"
 
 const Pedido = () => {
     const [name, setName] = useState("");
     const [valor, setValor] = useState("");
-
-    const pizzas = useRef("");
+    
+    const [listaPizzas, setPizza] = useState([]);
 
     const enviaPedido = async (e) => {
         e.preventDefault();
-        setName(pizzas.current.value);
-        const post = {'name': name, 'valor': valor};
+        const post = {'Name': name, 'Valor': valor};
 
         try {
-            await axios.post('http://localhost/piloto_freddys/api-slim/pedidos', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}.then(location.href='http://localhost:5173/Cardapio'));
-
+            await axios.post('http://localhost/piloto_freddys/api-slim/pedido', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
         } catch (error) {
             console.log(error);
-            console.log('errou.');
         }
     }
-    const [listaPizzas, setPizza] = useState([]);
+    function setValores(banco){
+        setPizza(banco);
+        setName(listaPizzas.nm_pizza);
+        setValor(listaPizzas.vl_pizza);
+    }
 
     function data() {
-        fetch('http://localhost/piloto_freddys/api-slim/pedidos/{id}')
+        const valores = new URLSearchParams(window.location.search);
+        const valor = valores.get('pedido');
+        
+        fetch(`http://localhost/piloto_freddys/api-slim/pedidos/${valor}`)
         .then ((response) => response.json())
-        .then ((json) => console.log(json))
+        .then ((json) => setValores(json))
+        
     }
     useEffect(() => {
         data();
@@ -86,7 +89,7 @@ const Pedido = () => {
                 <div className='flex items-center gap-2'>
                     <GiFullPizza className='text-red-700 text-3xl'/>
                     <div>
-                    <p className='font-medium text-md'>R$ 39,90</p>
+                    <p className='font-medium text-md'>R${listaPizzas.vl_pizza}</p>
                     <p className='text-gray-600'>1 item</p>
                     </div>
                 </div>
@@ -96,25 +99,23 @@ const Pedido = () => {
             </nav>
             <div>
                 <form onSubmit={(e)=>enviaPedido(e)}>
-                    {/* {listaPizzas.map((pizza) =>
-                    <div key={pizza.id_pizza} className="flex justify-center mt-52">
+                    <div key={listaPizzas.id_pizza} className="flex justify-center mt-52">
                         <div className="bg-white w-[45rem] h-[32rem]  shadow-gray-400 shadow-md rounded-lg">
                             <div className="p-5 ">
-                                <p className="text-red-700 text-lg">Pizza de {pizza.nm_pizza}</p>
-                                <p className="text-gray-500">{pizza.dc_pizza}</p>
+                                <p className="text-red-700 text-lg">Pizza de {listaPizzas.nm_pizza}</p>
+                                <p className="text-gray-500">{listaPizzas.dc_pizza}</p>
                                 <div className="flex items-center flex-col">
-                                    <img src={Frango} className="w-[30rem] flex items-center"/>
+                                    <img src={listaPizzas.img_pizza} className="w-[30rem] flex items-center"/>
                                 </div>
                             </div>
                             <div className="bg-white w-[45rem] rounded-xl p-5 shadow-[0px_-2px_5px_0px_#00000024]">
-                                <p className="font-medium text-lg" value="Pizza de Frango com Requeijão" name="name" id="name">Pizza de {pizza.nm_pizza}</p>
+                                <p className="font-medium text-lg" value="Pizza de Frango com Requeijão" name="name" id="name">Pizza de {listaPizzas.nm_pizza}</p>
                                 <p className="text-gray-500 mt-3">A partir</p>
-                                <p className="font-medium" name="valor" id="valor" value={pizza.vl_pizza}>{pizza.vl_pizza}</p>
-                                <input type="hidden" value="Frango com Requeijão" ref={pizzas}/>
+                                <p className="font-medium" name="valor" id="valor" value={listaPizzas.vl_pizza}>{listaPizzas.vl_pizza}</p>
                                 <button className="text-white font-medium bg-red-700 rounded-full px-5 not-sr-only py-1 mt-5" type="submit">Prosseguir para o pagamento</button>
                             </div>
                         </div>  
-                    </div>)} */}
+                    </div>
                 </form>
             </div>
         <Footer/>

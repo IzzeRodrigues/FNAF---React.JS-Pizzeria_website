@@ -12,7 +12,7 @@ $app -> get('/', function (Request $request, Response $response, array $args){
 
 $app -> get('/pizzas','getPizzas');
 $app -> post('/users','getUser');
-$app -> post('/pedidos','getPedido');
+$app -> post('/pedido','getPedido');
 $app -> get('/pedidos/{id}', 'getPizza');
 
 
@@ -54,8 +54,8 @@ function getUser(Request $request, Response $response, array $args){
 
 function getPedido(Request $request, Response $response, array $args){
     $sabores = $request->getParsedBody();
-    $nome = $sabores["body"]["name"];
-    $valor =  $sabores["body"]["valor"];
+    $nome = $sabores["body"]["Name"];
+    $valor =  $sabores["body"]["Valor"];
     $sql = "INSERT INTO tb_pedidos(nm_pedido, vl_pedido) VALUES('$nome', '$valor')";
     $stmt = getConn()->query($sql);
 };
