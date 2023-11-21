@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17/11/2023 às 22:17
+-- Tempo de geração: 21/11/2023 às 18:55
 -- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.0.28
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,23 +26,33 @@ USE `db_freddys`;
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_cadastros`
+-- Estrutura para tabela `tb_clientes`
 --
 
-CREATE TABLE `tb_cadastros` (
+CREATE TABLE `tb_clientes` (
   `id_cadastrado` int(11) NOT NULL,
   `nm_usuario` varchar(50) NOT NULL,
-  `nm_email` varchar(50) NOT NULL,
-  `cd_senha` varchar(12) NOT NULL,
-  `priv_cadastro` varchar(50) NOT NULL
+  `nm_email_usuario` varchar(20) NOT NULL,
+  `cd_senha_usuario` varchar(20) NOT NULL,
+  `priv_usuario` varchar(20) NOT NULL,
+  `cd_cep` varchar(10) NOT NULL,
+  `nm_rua` varchar(60) NOT NULL,
+  `cd_numero_endereco` varchar(3) NOT NULL,
+  `nm_bairro` varchar(50) NOT NULL,
+  `nm_cidade` varchar(30) NOT NULL,
+  `nm_estado` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Despejando dados para a tabela `tb_cadastros`
+-- Despejando dados para a tabela `tb_clientes`
 --
 
-INSERT INTO `tb_cadastros` (`id_cadastrado`, `nm_usuario`, `nm_email`, `cd_senha`, `priv_cadastro`) VALUES
-(27, 'adasdasda', '', 'wqeqweqweq', '');
+INSERT INTO `tb_clientes` (`id_cadastrado`, `nm_usuario`, `nm_email_usuario`, `cd_senha_usuario`, `priv_usuario`, `cd_cep`, `nm_rua`, `cd_numero_endereco`, `nm_bairro`, `nm_cidade`, `nm_estado`) VALUES
+(2, 'adasdasda', 'dsasdada', 'aas', '', '', '', '', '', '', ''),
+(3, 'adasdasda', 'dsasdada', 'aas', '', '', '', '', '', '', ''),
+(4, 'adasdasda', 'dsasdada', 'aas', '', '', '', '', '', '', ''),
+(5, 'adasdasda', 'dsasdada', 'aas', '', '', '', '', '', '', ''),
+(6, 'adasdasda', 'dsasdada', 'aas', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -55,6 +65,13 @@ CREATE TABLE `tb_pedidos` (
   `nm_pedido` varchar(30) NOT NULL,
   `vl_pedido` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `tb_pedidos`
+--
+
+INSERT INTO `tb_pedidos` (`id_pedido`, `nm_pedido`, `vl_pedido`) VALUES
+(6, 'Frango e Requeijão', '39.90');
 
 -- --------------------------------------------------------
 
@@ -84,9 +101,9 @@ INSERT INTO `tb_pizzas` (`id_pizza`, `nm_pizza`, `dc_pizza`, `img_pizza`, `vl_pi
 --
 
 --
--- Índices de tabela `tb_cadastros`
+-- Índices de tabela `tb_clientes`
 --
-ALTER TABLE `tb_cadastros`
+ALTER TABLE `tb_clientes`
   ADD PRIMARY KEY (`id_cadastrado`);
 
 --
@@ -106,16 +123,16 @@ ALTER TABLE `tb_pizzas`
 --
 
 --
--- AUTO_INCREMENT de tabela `tb_cadastros`
+-- AUTO_INCREMENT de tabela `tb_clientes`
 --
-ALTER TABLE `tb_cadastros`
-  MODIFY `id_cadastrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+ALTER TABLE `tb_clientes`
+  MODIFY `id_cadastrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tb_pedidos`
 --
 ALTER TABLE `tb_pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tb_pizzas`

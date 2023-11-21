@@ -45,11 +45,27 @@ function getPizza(Request $request, Response $response, array $args){
 function getUser(Request $request, Response $response, array $args){
     $usuario = $request->getParsedBody();
     $nome = $usuario["body"]["name"];
-    $email =  $usuario["body"]["email"];
     $senha =  $usuario["body"]["senha"];
-    $login =  $usuario["body"]["login"];
-    $sql = "INSERT INTO tb_cadastros(nm_usuario, nm_email, cd_senha, priv_cadastro) VALUES('$nome', '$email', '$senha', '$login')";
-    $stmt = getConn()->query($sql);
+    $email =  $usuario["body"]["email"];
+    $login =  $usuario["body"]["Login"];
+    
+    if ($login == "cliente"){
+        $cep =  $usuario["body"]["cep"];
+        $rua =  $usuario["body"]["rua"];
+        $num =  $usuario["body"]["num"];
+        $bairro =  $usuario["body"]["bairro"];
+        $cidade =  $usuario["body"]["cidade"];
+        $uf =  $usuario["body"]["uf"];
+
+        $sql = "INSERT INTO tb_clientes(nm_usuario, nm_email_usuario, cd_senha_usuario, priv_usuario, cd_cep, nm_rua, cd_numero_endereco, nm_bairro, nm_cidade, nm_estado) VALUES('$nome', '$email', '$senha', '$login', '$cep', '$rua', '$num', '$bairro', '$cidade', '$uf')";
+        $stmt = getConn()->query($sql);
+
+    } else {
+        $sql = "INSERT INTO tb_clientes(nm_usuario, nm_email_usuario, cd_senha_usuario, priv_usuario) VALUES('$nome', '$email', '$senha', '$login')";
+        $stmt = getConn()->query($sql);
+    };
+
+
 };
 
 function getPedido(Request $request, Response $response, array $args){

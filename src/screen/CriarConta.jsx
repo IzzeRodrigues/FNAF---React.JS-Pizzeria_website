@@ -4,17 +4,26 @@ import { useState } from "react";
 import axios from "axios";
 
 const CriarConta = () => {
-    const [name, setName] = useState([]);
+    const [name , setName] = useState([]);
     const [senha , setSenha] = useState([]);
     const [email , setEmail ] = useState([]);
     const [login , setLogin ] = useState([]);
 
+    const [Cep , setCep ] = useState([]);
+    const [Rua , setRua ] = useState([]);
+    const [Num , setNum ] = useState([]);
+    const [Bairro , setBairro ] = useState([]);
+    const [Cidade , setCidade ] = useState([]);
+    const [Uf , setUf ] = useState([]);
+
+
+    
+
     const enviaCadastro = async (e)=> {
         e.preventDefault();
-        const post = {'name': name, 'senha': senha, 'email': email, 'login': login};
-
+        const post = {'name': name, 'senha': senha, 'email': email, 'Login': login, 'cep': Cep, 'rua': Rua, 'num': Num, 'bairro':Bairro, 'cidade':Cidade, 'uf':Uf};
         try {
-            await axios.post('http://localhost/piloto_freddys/api-slim/users', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}.then(alert('Usuário criado!')));
+            await axios.post('http://localhost/piloto_freddys/api-slim/users', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
 
         } catch (error) {
             console.log(error);
@@ -29,27 +38,27 @@ const CriarConta = () => {
                 <div>
                     <div>
                         <p className="ms-6 text-lg text-gray-600">CEP</p>
-                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="text" name="nome" id="nome" onChange={(e) => setName(e.target.value)} placeholder="Insira seu CEP" />
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="text" name="Cep" id="Cep" onChange={(e) => setCep(e.target.value)} placeholder="Insira seu CEP" />
                     </div>
                     <div>
                         <p className="ms-6 text-lg text-gray-600">Rua</p>
-                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="text" name="email" id="email" onChange={(e) => setEmail(e.target.value)}  placeholder="Digite o nome da sua Rua" />
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="text" name="Rua" id="Rua" onChange={(e) => setRua(e.target.value)}  placeholder="Digite o nome da sua Rua" />
                     </div>
                     <div>
                         <p className="ms-6 text-lg text-gray-600">Número</p>
-                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} placeholder="Digite o número da sua residência" />
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="password" name="Num" id="Num" onChange={(e) => setNum(e.target.value)} placeholder="Digite o número da sua residência" />
                     </div>
                     <div>
                         <p className="ms-6 text-lg text-gray-600">Bairro</p>
-                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="text" name="email" id="email" onChange={(e) => setEmail(e.target.value)}  placeholder="Digite o nome do seu Bairro" />
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="text" name="Bairro" id="Bairro" onChange={(e) => setBairro(e.target.value)}  placeholder="Digite o nome do seu Bairro" />
                     </div>
                     <div>
                         <p className="ms-6 text-lg text-gray-600">Cidade</p>
-                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} placeholder="Digite o nome da sua Cidade" />
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="password" name="Cidade" id="Cidade" onChange={(e) => setCidade(e.target.value)} placeholder="Digite o nome da sua Cidade" />
                     </div>
                     <div>
                         <p className="ms-6 text-lg text-gray-600">Estado</p>
-                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} placeholder="Digite o nome do seu Estado" />
+                        <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="password" name="Uf" id="Uf" onChange={(e) => setUf(e.target.value)} placeholder="Digite o nome do seu Estado" />
                     </div>
                 </div>
             )
@@ -99,7 +108,7 @@ const CriarConta = () => {
                                     </div>
                                 </div>
                                 <div className="flex flex-col justify-around h-[12rem]">
-                                    <button type="submit" className=" w-10/12 py-3 mt-9 rounded-full bg-black text-white font-semibold"><a href="/Cardapio">Cadastrar</a></button>
+                                    <button type="submit" className=" w-10/12 py-3 mt-9 rounded-full bg-black text-white font-semibold">Cadastrar</button>
                                     <button className="font-medium w-10/12"><a href="/">Cadastrar depois</a></button>
                                     <button className="w-10/12 ">Já tem uma conta?<a href="/entrar" className="underline text-red-700 ms-2">Acesse aqui.</a></button>
                                 </div>
