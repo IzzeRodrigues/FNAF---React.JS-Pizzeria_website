@@ -42,7 +42,7 @@ const CriarConta = () => {
                         <p className="text-xl mt-8 text-gray-600">Bora pedir? Insira seu Usuário e Senha.</p>
                         <div className="mt-8 ms-12">
                             <form onSubmit={(e)=>enviaCadastro(e)}>
-                                <div className="flex flex-col justify-evenly h-[20rem]">
+                                <div className="flex flex-col justify-evenly pt-8 h-[10rem]">
                                     <div>
                                         <p className="ms-6 text-lg text-gray-600">Usuário</p>
                                         <input className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" type="text" name="nome" id="nome" onChange={(e) => setName(e.target.value)} placeholder="Qual é o seu nome?" />

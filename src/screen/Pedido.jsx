@@ -48,7 +48,7 @@ const Pedido = () => {
 
     return (
         <div className="telaPadrao overflow-hidden bg-red-50">
-                  <nav className='fixed h-24 bg-white w-full z-50 top-0'>
+        <nav className='fixed h-24 bg-white w-full z-50 top-0'>
             <div className='nav-center h-full flex items-center justify-center'>
                 <div className='flex items-center gap-[10rem]'>
                 <div className=''>
@@ -57,9 +57,9 @@ const Pedido = () => {
                     </a>
                 </div>
                 <div className='flex gap-5  '>
-                    <p className='text-gray-600  hover:text-red-700  active:text-red-700'> <a href="#" className='flex items-center gap-2'><HiOutlineHome />Início</a></p>
-                    <p className='text-red-700  hover:text-red-700  active:text-red-700'><a href="#" className='flex items-center gap-2'><HiOutlineBookOpen />Cardápio</a></p>
-                    <p className='text-gray-600   hover:text-red-700  active:text-red-700'><a href="#" className='flex items-center gap-2'><CiPizza />Meio a meio</a></p>
+                    <p className='text-gray-600  hover:text-red-700  active:text-red-700'> <a href="/" className='flex items-center gap-2'><HiOutlineHome />Início</a></p>
+                    <p className='text-red-700  hover:text-red-700  active:text-red-700'><a href="/entrar" className='flex items-center gap-2'><HiOutlineBookOpen />Cardápio</a></p>
+                    <p className='text-gray-600   hover:text-red-700  active:text-red-700'><a href="#" className='flex items-center gap-2'><CiPizza />Atendimento</a></p>
                     
                 </div>
                 <div>

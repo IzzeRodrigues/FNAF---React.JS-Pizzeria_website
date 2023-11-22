@@ -230,3 +230,10 @@ body {
 .sombra_pizza {
   box-shadow: 0px 0px 4px 0px #d4d4d4 inset;
 }
+.background-image{
+  background-image: url(assets/images/celebrate.jpg);
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position-x: 90% ;
+  background-position-y: 40%;
+}

@@ -9,6 +9,7 @@ import Axios2 from './screen/aula-axios2';
 import Teste from './components/teste_banco';
 import Entrar from './screen/entrar';
 import Pedido from './screen/Pedido';
+import Funcionario from './screen/Funcionario';
 
 function App(){
   return(
@@ -20,6 +21,7 @@ function App(){
         <Route path="/Cardapio" element={<Cardapio/>}></Route>
         <Route path="/entrar" element={<Entrar/>}></Route>
         <Route path="/pedido" element={<Pedido/>}></Route>
+        <Route path="/funcionario" element={<Funcionario/>}></Route>
 
         {/* 28/09 aula */}
         <Route path="/user" element={<Usuario/>}></Route>
@@ -28,6 +30,7 @@ function App(){
         <Route path="/aulaaxios2" element={<Axios2/>} ></Route>
         {/* 13/11 teste */}
         <Route path="/teste" element={<Teste/>} ></Route>
+
       </Routes>
     </BrowserRouter>
     </>

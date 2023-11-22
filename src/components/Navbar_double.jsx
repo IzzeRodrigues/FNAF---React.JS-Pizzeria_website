@@ -30,9 +30,9 @@ const Navbar_double = () => {
             </a>
           </div>
           <div className='flex gap-5  '>
-            <p className='text-red-700  hover:text-red-700  active:text-red-700'> <a href="#" className='flex items-center gap-2'><HiOutlineHome />Início</a></p>
-            <p className='text-gray-600   hover:text-red-700  active:text-red-700'><a href="#" className='flex items-center gap-2'><HiOutlineBookOpen />Cardápio</a></p>
-            <p className='text-gray-600   hover:text-red-700  active:text-red-700'><a href="#" className='flex items-center gap-2'><CiPizza />Meio a meio</a></p>
+            <p className=' text-gray-600 hover:text-red-700  active:text-red-700'> <a href="/" className='flex items-center gap-2'><HiOutlineHome />Início</a></p>
+            <p className='  text-red-700 hover:text-red-700  active:text-red-700'><a href="/entrar" className='flex items-center gap-2'><HiOutlineBookOpen />Cardápio</a></p>
+            <p className='text-gray-600   hover:text-red-700  active:text-red-700'><a href="#" className='flex items-center gap-2'><CiPizza />Atendimento</a></p>
           </div>
           <div>
             <p><a href="#" className='flex items-center gap-3'><LuMapPin />Rua. Alexandre Martins 80 <BiChevronDown className='text-red-700' /></a></p>
