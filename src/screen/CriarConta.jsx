@@ -23,8 +23,8 @@ const CriarConta = () => {
         e.preventDefault();
         const post = {'name': name, 'senha': senha, 'email': email, 'Login': login, 'cep': Cep, 'rua': Rua, 'num': Num, 'bairro':Bairro, 'cidade':Cidade, 'uf':Uf};
         try {
-            await axios.post('http://localhost/piloto_freddys/api-slim/users', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
-
+        const resposta = await axios.post('http://localhost/piloto_freddys/api-slim/users', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
+        console.log('teste');
         } catch (error) {
             console.log(error);
             console.log('errou.');
@@ -97,7 +97,7 @@ const CriarConta = () => {
                                     <div>
                                         <div className="flex flex-col">
                                         <label className="ms-6 text-lg text-gray-600">Quem é você?</label>
-                                            <select className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" name="login" id="login" onChange={(e) => setLogin(e.target.value)}>
+                                            <select className="placeholder:text-slate-400 bg-white rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] border focus:outline-none focus:ring-red focus:border-red-300  w-10/12 py-3 px-4" name="login" id="login" onBlur={(e) => setLogin(e.target.value)}>
                                                 <option value="funcionario">Sou Funcionário</option>
                                                 <option value="cliente">Sou Cliente</option>
                                             </select>

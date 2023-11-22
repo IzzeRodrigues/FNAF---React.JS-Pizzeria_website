@@ -14,6 +14,8 @@ $app -> get('/pizzas','getPizzas');
 $app -> post('/users','getUser');
 $app -> post('/pedido','getPedido');
 $app -> get('/pedidos/{id}', 'getPizza');
+$app -> post('/entrar','getLogin');
+
 
 
 
@@ -64,8 +66,24 @@ function getUser(Request $request, Response $response, array $args){
         $sql = "INSERT INTO tb_clientes(nm_usuario, nm_email_usuario, cd_senha_usuario, priv_usuario) VALUES('$nome', '$email', '$senha', '$login')";
         $stmt = getConn()->query($sql);
     };
+};
 
-
+function getLogin(Request $request, Response $response, array $args){
+    $usuario = $request->getParsedBody();
+    $nome = $usuario["body"]["name"];
+    $senha =  $usuario["body"]["senha"];
+    $conn = getConn();
+    $sql = "SELECT * FROM tb_clientes WHERE nm_usuario = '$nome' and cd_senha_usuario = '$senha' ";
+    $stmt = getConn()->prepare($sql);
+    $stmt -> execute();
+    $result = $stmt->fetchObject();
+        if ($result->priv_usuario == 'funcionario'){
+            $privilegio = 'funcionario';
+            return $privilegio;
+        } else {
+            $privilegio = 'cliente';
+            return $privilegio;
+        };
 };
 
 function getPedido(Request $request, Response $response, array $args){

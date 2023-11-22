@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21/11/2023 às 18:55
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Tempo de geração: 22-Nov-2023 às 02:46
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,7 +26,7 @@ USE `db_freddys`;
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_clientes`
+-- Estrutura da tabela `tb_clientes`
 --
 
 CREATE TABLE `tb_clientes` (
@@ -41,33 +41,32 @@ CREATE TABLE `tb_clientes` (
   `nm_bairro` varchar(50) NOT NULL,
   `nm_cidade` varchar(30) NOT NULL,
   `nm_estado` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `tb_clientes`
+-- Extraindo dados da tabela `tb_clientes`
 --
 
 INSERT INTO `tb_clientes` (`id_cadastrado`, `nm_usuario`, `nm_email_usuario`, `cd_senha_usuario`, `priv_usuario`, `cd_cep`, `nm_rua`, `cd_numero_endereco`, `nm_bairro`, `nm_cidade`, `nm_estado`) VALUES
-(2, 'adasdasda', 'dsasdada', 'aas', '', '', '', '', '', '', ''),
-(3, 'adasdasda', 'dsasdada', 'aas', '', '', '', '', '', '', ''),
-(4, 'adasdasda', 'dsasdada', 'aas', '', '', '', '', '', '', ''),
-(5, 'adasdasda', 'dsasdada', 'aas', '', '', '', '', '', '', ''),
-(6, 'adasdasda', 'dsasdada', 'aas', '', '', '', '', '', '', '');
+(8, 'isabelle', 'isabelle@email.com', '123', '', '', '', '', '', '', ''),
+(10, 'lucas', 'lucas@email.com', '123', 'funcionario', '', '', '', '', '', ''),
+(11, 'Ahamad', 'aasrfafqw@email.com', '123', 'funcionario', '', '', '', '', '', ''),
+(12, 'takashi', 'takashi@email.com', '123', 'cliente', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_pedidos`
+-- Estrutura da tabela `tb_pedidos`
 --
 
 CREATE TABLE `tb_pedidos` (
   `id_pedido` int(11) NOT NULL,
   `nm_pedido` varchar(30) NOT NULL,
   `vl_pedido` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `tb_pedidos`
+-- Extraindo dados da tabela `tb_pedidos`
 --
 
 INSERT INTO `tb_pedidos` (`id_pedido`, `nm_pedido`, `vl_pedido`) VALUES
@@ -76,7 +75,7 @@ INSERT INTO `tb_pedidos` (`id_pedido`, `nm_pedido`, `vl_pedido`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tb_pizzas`
+-- Estrutura da tabela `tb_pizzas`
 --
 
 CREATE TABLE `tb_pizzas` (
@@ -85,48 +84,48 @@ CREATE TABLE `tb_pizzas` (
   `dc_pizza` varchar(100) NOT NULL,
   `img_pizza` varchar(200) NOT NULL,
   `vl_pizza` decimal(4,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `tb_pizzas`
+-- Extraindo dados da tabela `tb_pizzas`
 --
 
 INSERT INTO `tb_pizzas` (`id_pizza`, `nm_pizza`, `dc_pizza`, `img_pizza`, `vl_pizza`) VALUES
-(1, 'Frango e Requeijão', 'Pizza de Frango com Requeijão Trem Bao, praticidade e sabor para o seu dia!', 'src/assets/images/frango-e-requeijao-v1.jpg', 39.90),
-(2, 'Portuguesa', 'As cores do recheio lembravam as da bandeira de Portugal, por isso foi batizada de portuguesa', 'src/assets/images/brasileira.jpg', 35.00),
-(3, 'Pepperoni', 'A grande diferença do preparo da calabresa para a pepperoni, é que a calabresa tem em seu preparo um', 'src/assets/images/pepper.jpg', 45.00);
+(1, 'Frango e Requeijão', 'Pizza de Frango com Requeijão Trem Bao, praticidade e sabor para o seu dia!', 'src/assets/images/frango-e-requeijao-v1.jpg', '39.90'),
+(2, 'Portuguesa', 'As cores do recheio lembravam as da bandeira de Portugal, por isso foi batizada de portuguesa', 'src/assets/images/brasileira.jpg', '35.00'),
+(3, 'Pepperoni', 'A grande diferença do preparo da calabresa para a pepperoni, é que a calabresa tem em seu preparo um', 'src/assets/images/pepper.jpg', '45.00');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `tb_clientes`
+-- Índices para tabela `tb_clientes`
 --
 ALTER TABLE `tb_clientes`
   ADD PRIMARY KEY (`id_cadastrado`);
 
 --
--- Índices de tabela `tb_pedidos`
+-- Índices para tabela `tb_pedidos`
 --
 ALTER TABLE `tb_pedidos`
   ADD PRIMARY KEY (`id_pedido`);
 
 --
--- Índices de tabela `tb_pizzas`
+-- Índices para tabela `tb_pizzas`
 --
 ALTER TABLE `tb_pizzas`
   ADD PRIMARY KEY (`id_pizza`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `tb_clientes`
 --
 ALTER TABLE `tb_clientes`
-  MODIFY `id_cadastrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_cadastrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `tb_pedidos`

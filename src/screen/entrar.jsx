@@ -14,8 +14,12 @@ const CriarConta = () => {
         const post = {'name': name, 'senha': senha, 'email': email, 'login': login};
 
         try {
-            await axios.post('http://localhost/piloto_freddys/api-slim/users', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}).then(location.href='http://localhost:5173/Cardapio');
-
+           const resposta = await axios.post('http://localhost/piloto_freddys/api-slim/entrar', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
+           if (resposta.data == 'funcionario'){
+            location.href = 'http://localhost:5173/funcionario';
+           } else {
+            location.href = 'http://localhost:5173/cardapio';
+           }
         } catch (error) {
             console.log(error);
             console.log('errou.');
