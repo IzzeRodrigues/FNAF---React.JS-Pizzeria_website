@@ -18,8 +18,13 @@ const CriarConta = () => {
            if (resposta.data == 'funcionario'){
             location.href = 'http://localhost:5173/funcionario';
            } else {
-            location.href = 'http://localhost:5173/cardapio';
+            if (resposta.data == 'cliente'){
+                location.href = 'http://localhost:5173/cardapio';
+            } else {
+                alert('Usuário ou senha incorretos, tente novamente mais tarde.');
+            }
            }
+       
         } catch (error) {
             console.log(error);
             console.log('errou.');

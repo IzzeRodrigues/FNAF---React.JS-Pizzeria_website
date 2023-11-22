@@ -21,15 +21,17 @@ const Pedido = () => {
         const post = {'Name': name, 'Valor': valor};
 
         try {
-            await axios.post('http://localhost/piloto_freddys/api-slim/pedido', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
+            await axios.post('http://localhost/piloto_freddys/api-slim/pedido', {body:post},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
+            alert('Pedido Realizado!');
+            location.href='http://localhost:5173/Cardapio';
         } catch (error) {
             console.log(error);
         }
     }
     function setValores(banco){
         setPizza(banco);
-        setName(listaPizzas.nm_pizza);
-        setValor(listaPizzas.vl_pizza);
+        setName(banco.nm_pizza);
+        setValor(banco.vl_pizza);
     }
 
     function data() {

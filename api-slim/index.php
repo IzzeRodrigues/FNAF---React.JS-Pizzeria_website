@@ -73,7 +73,7 @@ function getLogin(Request $request, Response $response, array $args){
     $nome = $usuario["body"]["name"];
     $senha =  $usuario["body"]["senha"];
     $conn = getConn();
-    $sql = "SELECT * FROM tb_clientes WHERE nm_usuario = '$nome' and cd_senha_usuario = '$senha' ";
+    $sql = "SELECT * FROM tb_clientes WHERE nm_usuario = '$nome' AND cd_senha_usuario = '$senha' ";
     $stmt = getConn()->prepare($sql);
     $stmt -> execute();
     $result = $stmt->fetchObject();
