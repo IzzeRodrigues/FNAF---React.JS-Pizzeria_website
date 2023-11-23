@@ -4,12 +4,10 @@ import { CiPizza } from 'react-icons/ci'
 import { BiChevronDown } from 'react-icons/bi'
 import { LuMapPin } from 'react-icons/lu'
 import { CgProfile } from 'react-icons/cg'
-import celebrate from '../assets/images/celebrate.jpg'
-
 
 const Funcionario = () => {
     return (
-        <div>
+        <div className='w-full'>
             <nav className='fixed h-24 bg-white w-full z-50 top-0'>
                 <div className='nav-center h-full flex items-center justify-center'>
                     <div className='flex items-center gap-[10rem]'>
@@ -41,12 +39,12 @@ const Funcionario = () => {
                             <p className='pt-5 text-md text-gray-600 text-left w-10/12'>Escolha uma operação e vamos começar!</p>
                             <div className='flex flex-col items-center gap-4 mt-10'>
                                 <div className='flex gap-12'>
-                                    <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'>Cadastrar novo sabor de Pizza</button>
+                                    <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'><a href="/CriaPizzas">Cadastrar novo sabor de Pizza</a></button>
                                     <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'>Cadastrar nova Bebida</button>
                                 </div>
                                 <div className='flex gap-12'>
                                     <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'>Cadastrar novo cliente</button>
-                                    <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'>Realizar novo pedido</button>
+                                    <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'><a href="/pedidoCliente">Realizar novo pedido</a></button>
                                 </div>
                             </div>
                         </div>

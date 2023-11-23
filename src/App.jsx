@@ -10,6 +10,8 @@ import Teste from './components/teste_banco';
 import Entrar from './screen/entrar';
 import Pedido from './screen/Pedido';
 import Funcionario from './screen/Funcionario';
+import PedidoCliente from './screen/PedidoCliente';
+import CriaPizzas from "./screen/CriaPizzas";
 
 function App(){
   return(
@@ -22,6 +24,9 @@ function App(){
         <Route path="/entrar" element={<Entrar/>}></Route>
         <Route path="/pedido" element={<Pedido/>}></Route>
         <Route path="/funcionario" element={<Funcionario/>}></Route>
+        <Route path="/PedidoCliente" element={<PedidoCliente/>}></Route>
+        <Route path="/CriaPizzas" element={<CriaPizzas/>}></Route>
+
 
         {/* 28/09 aula */}
         <Route path="/user" element={<Usuario/>}></Route>

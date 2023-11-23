@@ -11,13 +11,12 @@ $app -> get('/', function (Request $request, Response $response, array $args){
 });
 
 $app -> get('/pizzas','getPizzas');
+$app -> get('/pizzaCliente','getPizzaCliente');
 $app -> post('/users','getUser');
 $app -> post('/pedido','getPedido');
 $app -> get('/pedidos/{id}', 'getPizza');
 $app -> post('/entrar','getLogin');
-
-
-
+$app -> post('/pedidoFuncionario', 'getPedidoFuncionario');
 
 function getConn(){
     return new PDO('mysql:host=localhost:3306;dbname=db_freddys', 'root', '',array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
@@ -37,6 +36,19 @@ function getPizza(Request $request, Response $response, array $args){
     $sql = "SELECT * FROM tb_pizzas WHERE id_pizza=:id";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam('id',$id);
+    $stmt->execute();
+
+    $pizza = $stmt->fetchObject();
+    $response->getBody()->write(json_encode($pizza));
+    return $response;
+};
+
+function getPizzaCliente(Request $request, Response $response, array $args){
+    $namePizza = $args['namePizza'];
+    $conn = getConn();
+    $sql = "SELECT * FROM tb_pizzas WHERE nm_pizza=:namePizza";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam('namePizza',$namePizza);
     $stmt->execute();
 
     $pizza = $stmt->fetchObject();
@@ -85,7 +97,6 @@ function getLogin(Request $request, Response $response, array $args){
             return $privilegio;
         };
 };
-
 function getPedido(Request $request, Response $response, array $args){
     $sabores = $request->getParsedBody();
     $nome = $sabores["body"]["Name"];
@@ -93,5 +104,15 @@ function getPedido(Request $request, Response $response, array $args){
     $sql = "INSERT INTO tb_pedidos(nm_pedido, vl_pedido) VALUES('$nome', '$valor')";
     $stmt = getConn()->query($sql);
 };
+function getPedidoFuncionario(Request $request, Response $response, array $args){
+    $sabores = $request->getParsedBody();
+    $nome = $sabores["body"]["Sabor"];
+    $sql = "SELECT * FROM tb_pizzas WHERE nm_pizza = '$nome'";
+
+    $stmt = getConn()->prepare($sql);
+    $stmt -> execute();
+    $result = $stmt->fetchObject();
+    echo($result);
+}
 
 $app->run(); 

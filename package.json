@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.2",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "axios": "^1.6.1",
     "jquery": "^3.7.1",
+    "jquery-mask-plugin": "^1.14.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
@@ -21,7 +23,8 @@
     "react-select": "^5.7.7"
   },
   "devDependencies": {
-    "@types/jquery": "^3.5.27",
+    "@types/jquery": "^3.5.29",
+    "@types/jquery-mask-plugin": "^1.14.6",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.4",

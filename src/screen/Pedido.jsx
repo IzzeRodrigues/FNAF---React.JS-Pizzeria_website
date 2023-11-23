@@ -38,7 +38,7 @@ const Pedido = () => {
         const valores = new URLSearchParams(window.location.search);
         const valor = valores.get('pedido');
         
-        fetch(`http://localhost/piloto_freddys/api-slim/pedidos/${valor}`)
+        fetch(`http://localhost/piloto_freddys/api-slim/pizzas/${valor}`)
         .then ((response) => response.json())
         .then ((json) => setValores(json))
         
