@@ -101,6 +101,13 @@ function getPedido(Request $request, Response $response, array $args){
     $sabores = $request->getParsedBody();
     $nome = $sabores["body"]["Name"];
     $valor =  $sabores["body"]["Valor"];
+        if ($nome == "" || $valor == ""){
+            $resposta = 'true';
+            return $resposta;
+        } else {
+            $resposta = 'false';
+            return $resposta;
+        };
     $sql = "INSERT INTO tb_pedidos(nm_pedido, vl_pedido) VALUES('$nome', '$valor')";
     $stmt = getConn()->query($sql);
 };
@@ -108,10 +115,15 @@ function getPedido(Request $request, Response $response, array $args){
 function getPedidoFuncionario(Request $request, Response $response, array $args){
     $sabores = $request->getParsedBody();
     $nome = $sabores["body"]["Sabor"];
-    $sql = "SELECT * FROM tb_pizzas WHERE nm_pizza = '$nome'";
-    $stmt = getConn()->prepare($sql);
-    $stmt -> execute();
-    $result = $stmt->fetchObject();
+    $conn = getConn();
+    $sql = "SELECT * FROM tb_pizzas WHERE nm_pizza=:sabor";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam('sabor',$nome);
+    $stmt->execute();
+
+    $pizza = $stmt->fetchObject();
+    $response->getBody()->write(json_encode($pizza));
+    return $response;
 }
 
 $app->run(); 

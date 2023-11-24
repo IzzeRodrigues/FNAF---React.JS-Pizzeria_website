@@ -17,9 +17,10 @@ const CriaPizzas = () => {
 
     const Component = () => {  
        $(() => {
-        $('.dinheiro').mask('R$##.00');
+        $('.dinheiro').mask('R$'+'##.#0');
         });
         const dinheiro = $('.dinheiro').cleanVal();
+        // console.log(dinheiro)
     };
 
     const [sabor , setSabor] = useState([]);
@@ -30,7 +31,7 @@ const CriaPizzas = () => {
         
         try {
             await axios.post('http://localhost/piloto_freddys/api-slim/pedidoFuncionario', {body:post},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
-            alert('Pizza criada com sucesso!');
+            // alert('Pizza criada com sucesso!');
             // location.href = 'http://localhost:5173/funcionario';
         } catch (error) {
             console.log(error);
@@ -73,16 +74,19 @@ const CriaPizzas = () => {
                                 <input className="w-full rounded-xl border p-2" type="text" name="sabor" id="sabor" onChange={(e) => setSabor(e.target.value)} placeholder="Cogumelos com Queijo"/>
                                 <p className="text-gray-500"></p>
                                 <div className="flex items-center flex-col">
-                                <input className="mt-8" type="file" />
+                                    <div className="flex flex-col items-center border mt-5 rounded-xl p-5">
+                                        <label className="">Escolha uma linda imagem para sua pizza</label>
+                                        <input className="" type="file" />
+                                    </div>
                                 </div>
                             </div>
-                            <div className="bg-white w-[45rem] rounded-xl p-5 flex flex-col">
+                            <div className="bg-white w-[45rem] rounded-xl border-t p-5 flex flex-col">
                                 <p className="font-medium text-lg" name="name" id="name">Pizza de {sabor} </p>
                                 <label className="line-clamp-2 mt-5">Crie uma linda descrição para a nova pizza do catálogo</label>
                                 <input type="text" className="rounded-xl border p-2 "  placeholder="Saborosos cogumelos regrados em azeite de oliva combinados com um saborosíssimo que..."/>
                                 <p className="text-gray-500 mt-3">A partir de</p>
                                 <input  placeholder="R$42.50" ref={nome} onChange={Component} type="text"className="rounded-xl border p-2 dinheiro"/>
-                                <button className="text-white font-medium bg-red-700 rounded-full px-5 py-1 mt-12" type="submit">Registrar novo sabor</button>
+                                <button className="text-white font-medium bg-red-700 rounded-full px-5 py-1 mt-2" type="submit">Registrar novo sabor</button>
                             </div>
                         </div>  
                     </div>
