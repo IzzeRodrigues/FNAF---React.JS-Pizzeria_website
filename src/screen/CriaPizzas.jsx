@@ -69,19 +69,20 @@ const CriaPizzas = () => {
                     <div className="flex justify-center mt-32">
                         <div className="bg-white w-[45rem] h-[32rem]  shadow-gray-400 shadow-md rounded-lg">
                             <div className="p-5 ">
-                                <input className="w-full" type="text" name="sabor" id="sabor" onChange={(e) => setSabor(e.target.value)} placeholder="Insira o sabor da nova pizza: 'Cogumelos com Queijo' "/>
+                                <label>Insira o sabor da pizza</label>
+                                <input className="w-full rounded-xl border p-2" type="text" name="sabor" id="sabor" onChange={(e) => setSabor(e.target.value)} placeholder="Cogumelos com Queijo"/>
                                 <p className="text-gray-500"></p>
                                 <div className="flex items-center flex-col">
-                                <input className="mt-8" type="file" placeholder="Insira uma linda foto da nova pizza" />
+                                <input className="mt-8" type="file" />
                                 </div>
                             </div>
-                            <div className="bg-white w-[45rem] rounded-xl p-5 shadow-[0px_-2px_5px_0px_#00000024] flex flex-col">
+                            <div className="bg-white w-[45rem] rounded-xl p-5 flex flex-col">
                                 <p className="font-medium text-lg" name="name" id="name">Pizza de {sabor} </p>
-                                <label className=" line-clamp-2">Crie uma linda descrição para a nova pizza do catálogo: 'Saborosos cogumelos regrados em azeite de oliva combinados com um saborosíssimo queijo gouda, a verdadeira 8º maravilha!'</label>
-                                <input type="text"  placeholder="Aqui a sua descrição..."/>
+                                <label className="line-clamp-2 mt-5">Crie uma linda descrição para a nova pizza do catálogo</label>
+                                <input type="text" className="rounded-xl border p-2 "  placeholder="Saborosos cogumelos regrados em azeite de oliva combinados com um saborosíssimo que..."/>
                                 <p className="text-gray-500 mt-3">A partir de</p>
-                                <input placeholder="Insira o valor da pizza: 'R$42.50'" ref={nome} onChange={Component} type="text"className="dinheiro"/>
-                                <button className="text-white font-medium bg-red-700 rounded-full px-5 not-sr-only py-1 mt-5" type="submit">Registrar novo sabor</button>
+                                <input  placeholder="R$42.50" ref={nome} onChange={Component} type="text"className="rounded-xl border p-2 dinheiro"/>
+                                <button className="text-white font-medium bg-red-700 rounded-full px-5 py-1 mt-12" type="submit">Registrar novo sabor</button>
                             </div>
                         </div>  
                     </div>

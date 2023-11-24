@@ -43,18 +43,18 @@ function getPizza(Request $request, Response $response, array $args){
     return $response;
 };
 
-function getPizzaCliente(Request $request, Response $response, array $args){
-    $namePizza = $args['namePizza'];
-    $conn = getConn();
-    $sql = "SELECT * FROM tb_pizzas WHERE nm_pizza=:namePizza";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam('namePizza',$namePizza);
-    $stmt->execute();
+// function getPizzaCliente(Request $request, Response $response, array $args){
+//     $namePizza = $args['namePizza'];
+//     $conn = getConn();
+//     $sql = "SELECT * FROM tb_pizzas WHERE nm_pizza=:namePizza";
+//     $stmt = $conn->prepare($sql);
+//     $stmt->bindParam('namePizza',$namePizza);
+//     $stmt->execute();
 
-    $pizza = $stmt->fetchObject();
-    $response->getBody()->write(json_encode($pizza));
-    return $response;
-};
+//     $pizza = $stmt->fetchObject();
+//     $response->getBody()->write(json_encode($pizza));
+//     return $response;
+// };
 
 function getUser(Request $request, Response $response, array $args){
     $usuario = $request->getParsedBody();
@@ -104,15 +104,14 @@ function getPedido(Request $request, Response $response, array $args){
     $sql = "INSERT INTO tb_pedidos(nm_pedido, vl_pedido) VALUES('$nome', '$valor')";
     $stmt = getConn()->query($sql);
 };
+
 function getPedidoFuncionario(Request $request, Response $response, array $args){
     $sabores = $request->getParsedBody();
     $nome = $sabores["body"]["Sabor"];
     $sql = "SELECT * FROM tb_pizzas WHERE nm_pizza = '$nome'";
-
     $stmt = getConn()->prepare($sql);
     $stmt -> execute();
     $result = $stmt->fetchObject();
-    echo($result);
 }
 
 $app->run(); 
