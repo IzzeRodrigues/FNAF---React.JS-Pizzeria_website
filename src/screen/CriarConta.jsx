@@ -16,14 +16,11 @@ const CriarConta = () => {
     const [Cidade , setCidade ] = useState([]);
     const [Uf , setUf ] = useState([]);
 
-
-    
-
     const enviaCadastro = async (e)=> {
         e.preventDefault();
         const post = {'name': name, 'senha': senha, 'email': email, 'Login': login, 'cep': Cep, 'rua': Rua, 'num': Num, 'bairro':Bairro, 'cidade':Cidade, 'uf':Uf};
         try {
-        const resposta = await axios.post('http://localhost/piloto_freddys/api-slim/users', {body:post,},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
+        const resposta = await axios.post('http://localhost/piloto_freddys/api-slim/users', {body:post},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
         console.log('teste');
         } catch (error) {
             console.log(error);

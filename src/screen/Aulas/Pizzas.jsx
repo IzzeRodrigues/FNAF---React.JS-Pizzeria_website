@@ -1,41 +1,37 @@
 import { useState } from "react";
+import './index.css';
 
-export const pizzas = [
+const pizzas = [
     {
         'id': 1,
-        'sabor': 'Frango e Requeijão',
-        'descricao': 'pizza Frango e Requeijão mt boa!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        'valor': 40,
-        'quadro' : 'src/assets/images/frango-e-requeijao-v1.jpg'
+        'sabor': 'Pepperoni',
+        'valor': 40
+
     },
     {
         'id': 2,
-        'sabor': 'Portuguesa',
-        'descricao': 'pizza portuguesa mt boa!',
-        'valor': 40,
-        'quadro' : 'src/assets/images/brasileira.jpg'
+        'sabor': 'Frango com Requeijão',
+        'valor': 35
     },
     {
         'id': 3,
-        'sabor': 'Pepperoni',
-        'descricao': 'pizza pepperoni mt boa!',
-        'valor': 40,
-        'quadro' : 'src/assets/images/pepper.jpg'
-    },
-    
+        'sabor': 'Brasileira',
+        'valor': 45
+    }
 ]
-// function Banco() {
-//     const [count,setCount] = useState(0)
-//     return(
-//         <>
-//         <div>
-//             {pizzas.map((pizza) =>
-//             <div key={pizza.id}>
-//                 {pizza.sabor},{pizza.valor}
-//             </div>
-//             )}
-//         </div>
-//         </>
-//     )
-// }
-// export default Banco
+function Banco() {
+    const [count,setCount] = useState(0)
+    return(
+        <>
+        <div>
+            {pizzas.map((pizza) =>
+            <div key={pizza.id}>
+                {pizza.sabor},{pizza.valor}
+            </div>
+            )}
+        </div>
+
+        </>
+    )
+}
+export default Banco

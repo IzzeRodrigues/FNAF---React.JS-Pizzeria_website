@@ -9,8 +9,6 @@ import { useRef } from "react"
 
 const Cardapio = () => {
     const [banco_pizzas, setUser] = useState([]);
-    const [banco_teste, setTeste] = useState([]);
-
 
     function data() {
         fetch('http://localhost/piloto_freddys/api-slim/pizzas')
@@ -56,25 +54,27 @@ const Cardapio = () => {
                                     <p className="text-red-700 underline"><a href="#">Ver todas</a></p>
                                 </div>
                                 <div className="">
-                                    <form action="http://localhost:5173/pedido" method="GET" className="flex gap-5">
+                                    <form action="http://localhost:5173/pedido" method="GET" className="flex flex-wrap gap-y-5">
                                     {banco_pizzas.map((pizza) =>
-                                            <div key={pizza.id_pizza} className=" bg-white rounded-lg shadow-md w-4/12 ps-4 px-2 py-2">
-                                                <div className="flex w-full">   
-                                                    <div className="flex flex-col justify-between w-7/12">
-                                                        <p className="font-medium text-lg">{pizza.nm_pizza}</p>
-                                                        <p className="w-11/12 text-gray-600 text-ellipsis line-clamp-2 ">{pizza.dc_pizza}</p>
-                                                        <div>   
-                                                            <p className="text-gray-600 text-sm">A partir de</p>
-                                                            <p className="font-medium">R${pizza.vl_pizza}</p>
+                                            <div className="flex justify-center w-4/12 px-2">
+                                                <div key={pizza.id_pizza} className=" bg-white rounded-lg shadow-md ps-4 px-2 py-2">
+                                                    <div className="flex w-full">   
+                                                        <div className="flex flex-col justify-between w-7/12">
+                                                            <p className="font-medium text-lg">{pizza.nm_pizza}</p>
+                                                            <p className="w-11/12 text-gray-600 text-ellipsis line-clamp-2 ">{pizza.dc_pizza}</p>
+                                                            <div>   
+                                                                <p className="text-gray-600 text-sm">A partir de</p>
+                                                                <p className="font-medium">R${pizza.vl_pizza}</p>
+                                                            </div>
                                                         </div>
+                                                        <div className="flex">
+                                                            <img className="rounded-lg w-[10rem] h-[10rem] object-cover object-center sombra_pizza p-1" src={pizza.img_pizza} />
+                                                        </div>  
                                                     </div>
-                                                    <div className="flex">
-                                                        <img className="rounded-lg w-[10rem] h-[10rem] object-cover object-center sombra_pizza p-1" src={pizza.img_pizza} />
-                                                    </div>  
-                                                </div>
-                                                <hr className="opacity-75 w-full my-3" />
-                                                <div className="flex justify-end">
-                                                    <button className="rounded-full py-1 px-4 b outline outline-offset-2 outline-1  hover:outline-4 transition-all duration-100 outline-black font-medium mt-4" name="pedido" value={pizza.id_pizza}>Fazer Pedido</button>
+                                                    <hr className="opacity-75 w-full my-3" />
+                                                    <div className="flex justify-end">
+                                                        <button className="rounded-full py-1 px-4 b outline outline-offset-2 outline-1  hover:outline-4 transition-all duration-100 outline-black font-medium mt-4" name="pedido" value={pizza.id_pizza}>Fazer Pedido</button>
+                                                    </div>
                                                 </div>
                                         </div>)}
                                     </form>

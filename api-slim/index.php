@@ -11,12 +11,12 @@ $app -> get('/', function (Request $request, Response $response, array $args){
 });
 
 $app -> get('/pizzas','getPizzas');
-$app -> get('/pizzaCliente','getPizzaCliente');
 $app -> post('/users','getUser');
 $app -> post('/pedido','getPedido');
 $app -> get('/pedidos/{id}', 'getPizza');
 $app -> post('/entrar','getLogin');
 $app -> post('/pedidoFuncionario', 'getPedidoFuncionario');
+$app -> post('/criador','getPizzasNovas');
 
 function getConn(){
     return new PDO('mysql:host=localhost:3306;dbname=db_freddys', 'root', '',array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
@@ -42,19 +42,19 @@ function getPizza(Request $request, Response $response, array $args){
     $response->getBody()->write(json_encode($pizza));
     return $response;
 };
+function getPizzasNovas(Request $request, Response $response, array $args){
+    $novaPizza = $request->getParsedBody();
 
-// function getPizzaCliente(Request $request, Response $response, array $args){
-//     $namePizza = $args['namePizza'];
-//     $conn = getConn();
-//     $sql = "SELECT * FROM tb_pizzas WHERE nm_pizza=:namePizza";
-//     $stmt = $conn->prepare($sql);
-//     $stmt->bindParam('namePizza',$namePizza);
-//     $stmt->execute();
+        $nome =  $novaPizza["body"]["Nome"];
+        $desc =  $novaPizza["body"]["Desc"];
+        $img =  $_FILES["body"]["Img"];
+        $preco =  $novaPizza["body"]["Preco"];
+        $valorPizza = $preco/100;
 
-//     $pizza = $stmt->fetchObject();
-//     $response->getBody()->write(json_encode($pizza));
-//     return $response;
-// };
+        $sql = "INSERT INTO tb_pizzas(nm_pizza, dc_pizza, img_pizza, vl_pizza) VALUES('$nome', '$desc', '$img', '$valorPizza')";
+        $stmt = getConn()->query($sql);
+
+};
 
 function getUser(Request $request, Response $response, array $args){
     $usuario = $request->getParsedBody();
@@ -73,6 +73,7 @@ function getUser(Request $request, Response $response, array $args){
 
         $sql = "INSERT INTO tb_clientes(nm_usuario, nm_email_usuario, cd_senha_usuario, priv_usuario, cd_cep, nm_rua, cd_numero_endereco, nm_bairro, nm_cidade, nm_estado) VALUES('$nome', '$email', '$senha', '$login', '$cep', '$rua', '$num', '$bairro', '$cidade', '$uf')";
         $stmt = getConn()->query($sql);
+        
 
     } else {
         $sql = "INSERT INTO tb_clientes(nm_usuario, nm_email_usuario, cd_senha_usuario, priv_usuario) VALUES('$nome', '$email', '$senha', '$login')";
@@ -101,15 +102,15 @@ function getPedido(Request $request, Response $response, array $args){
     $sabores = $request->getParsedBody();
     $nome = $sabores["body"]["Name"];
     $valor =  $sabores["body"]["Valor"];
-        if ($nome == "" || $valor == ""){
-            $resposta = 'true';
-            return $resposta;
-        } else {
-            $resposta = 'false';
-            return $resposta;
-        };
     $sql = "INSERT INTO tb_pedidos(nm_pedido, vl_pedido) VALUES('$nome', '$valor')";
     $stmt = getConn()->query($sql);
+    if ($nome == "" || $valor == ""){
+        $resposta = 'true';
+        return $resposta;
+    } else {
+        $resposta = 'false';
+        return $resposta;
+    };
 };
 
 function getPedidoFuncionario(Request $request, Response $response, array $args){
