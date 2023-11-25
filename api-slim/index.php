@@ -17,6 +17,7 @@ $app -> get('/pedidos/{id}', 'getPizza');
 $app -> post('/entrar','getLogin');
 $app -> post('/pedidoFuncionario', 'getPedidoFuncionario');
 $app -> post('/criador','getPizzasNovas');
+$app -> post('/criadorBebidas','getBebidasNovas');
 
 function getConn(){
     return new PDO('mysql:host=localhost:3306;dbname=db_freddys', 'root', '',array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
@@ -53,7 +54,6 @@ function getPizzasNovas(Request $request, Response $response, array $args){
 
         $sql = "INSERT INTO tb_pizzas(nm_pizza, dc_pizza, img_pizza, vl_pizza) VALUES('$nome', '$desc', '$img', '$valorPizza')";
         $stmt = getConn()->query($sql);
-
 };
 
 function getUser(Request $request, Response $response, array $args){
@@ -73,12 +73,8 @@ function getUser(Request $request, Response $response, array $args){
 
         $sql = "INSERT INTO tb_clientes(nm_usuario, nm_email_usuario, cd_senha_usuario, priv_usuario, cd_cep, nm_rua, cd_numero_endereco, nm_bairro, nm_cidade, nm_estado) VALUES('$nome', '$email', '$senha', '$login', '$cep', '$rua', '$num', '$bairro', '$cidade', '$uf')";
         $stmt = getConn()->query($sql);
-        
 
-    } else {
-        $sql = "INSERT INTO tb_clientes(nm_usuario, nm_email_usuario, cd_senha_usuario, priv_usuario) VALUES('$nome', '$email', '$senha', '$login')";
-        $stmt = getConn()->query($sql);
-    };
+};
 };
 
 function getLogin(Request $request, Response $response, array $args){
@@ -126,5 +122,17 @@ function getPedidoFuncionario(Request $request, Response $response, array $args)
     $response->getBody()->write(json_encode($pizza));
     return $response;
 }
+function getBebidasNovas(Request $request, Response $response, array $args){
+    $novaBebida = $request->getParsedBody();
+        // $img =  $_FILES["body"]["Img"];
+        // $desc =  $novaBebida["body"]["Desc"];
+        $nome =  $novaBebida["body"]["Nome"];
+        $preco =  $novaBebida["body"]["Preco"];
+        // $valorBebida = $preco/10;
+
+        $sql = "INSERT INTO tb_bebidas(nm_bebida, vl_bebida) VALUES('$nome', '$preco')";
+        $stmt = getConn()->query($sql);
+};
+
 
 $app->run(); 

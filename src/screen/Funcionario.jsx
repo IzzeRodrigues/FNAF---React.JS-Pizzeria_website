@@ -40,10 +40,10 @@ const Funcionario = () => {
                             <div className='flex flex-col items-center gap-4 mt-10'>
                                 <div className='flex gap-12'>
                                     <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'><a href="/CriaPizzas">Cadastrar novo sabor de Pizza</a></button>
-                                    <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'>Cadastrar nova Bebida</button>
+                                    <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'><a href="/CriaBebidas">Cadastrar nova Bebida</a></button>
                                 </div>
                                 <div className='flex gap-12'>
-                                    <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'>Cadastrar novo cliente</button>
+                                    <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'><a href="/Cadastrador">Cadastrar novo cliente</a></button>
                                     <button className='rounded-2xl bg-red-700 px-3 py-1 text-white'><a href="/pedidoCliente">Realizar novo pedido</a></button>
                                 </div>
                             </div>

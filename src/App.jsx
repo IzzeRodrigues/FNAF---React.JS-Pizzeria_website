@@ -8,6 +8,9 @@ import Pedido from './screen/Pedido';
 import Funcionario from './screen/Funcionario';
 import PedidoCliente from './screen/PedidoCliente';
 import CriaPizzas from "./screen/CriaPizzas";
+import CriaBebidas from "./screen/CriaBebidas";
+import Cadastrador from "./screen/Cadastrador";
+
 
 // import Usuario from './screen/Aulas/Users';
 // import Axios from './screen/Aulas/aula-axios';
@@ -27,6 +30,9 @@ function App(){
         <Route path="/funcionario" element={<Funcionario/>}></Route>
         <Route path="/PedidoCliente" element={<PedidoCliente/>}></Route>
         <Route path="/CriaPizzas" element={<CriaPizzas/>}></Route>
+        <Route path="/CriaBebidas" element={<CriaBebidas/>}></Route>
+        <Route path="/Cadastrador" element={<Cadastrador/>}></Route>
+
 
 
         {/* 28/09 aula */}

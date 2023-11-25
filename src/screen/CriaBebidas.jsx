@@ -10,11 +10,11 @@ import axios from "axios"
 import $ from 'jquery';
 import 'jquery-mask-plugin/dist/jquery.mask.min'; 
 
-const CriaPizzas = () => {
+const CriaBebidas = () => {
     
     const Component = () => {  
         $(() => {
-            $('.dinheiro').mask('R$##.00');
+            $('.dinheiro').mask('R$#.00');
         });
         setPreco($('.dinheiro').cleanVal());
     };  
@@ -31,8 +31,8 @@ const CriaPizzas = () => {
         const post = {'Nome': nome, 'Desc': desc, 'Img': img, 'Preco': preco};
         
         try {
-            const conecta = await axios.post('http://localhost/piloto_freddys/api-slim/criador', {body:post},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
-            alert('Pizza criada com sucesso! Dê uma olhada no cardápio...');
+            const conecta = await axios.post('http://localhost/piloto_freddys/api-slim/criadorBebidas', {body:post},{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}});
+            alert('Bebida criada com sucesso!');
             location.href = 'http://localhost:5173/funcionario';
         } catch (error) {
             console.log(error);
@@ -72,23 +72,23 @@ const CriaPizzas = () => {
                     <div className="flex justify-center mt-32">
                         <div className="bg-white w-[45rem] h-[32rem]  shadow-gray-400 shadow-md rounded-lg">
                             <div className="p-5 ">
-                                <label>Insira o sabor da pizza</label>
-                                <input className="w-full rounded-xl border p-2" type="text" name="sabor" id="sabor" onChange={(e) => setNome(e.target.value)} placeholder="Cogumelos com Queijo"/>
+                                <label>Insira o nome da Bebida</label>
+                                <input className="w-full rounded-xl border p-2" type="text" name="sabor" id="sabor" onChange={(e) => setNome(e.target.value)} placeholder="Coca-Cola zero"/>
                                 <p className="text-gray-500"></p>
                                 <div className="flex items-center flex-col">
                                     <div className="flex flex-col items-center border mt-5 rounded-xl p-5">
-                                        <label className="">Escolha uma linda imagem para sua pizza</label>
-                                        <input type="file" onChange={(e) => setImg(e.target.value)}  />
+                                        <label>Escolha uma foto para nova bebida</label>
+                                        <input className="mt-2" type="file" onChange={(e) => setImg(e.target.value)}  />
                                     </div>
                                 </div>
                             </div>
                             <div className="bg-white w-[45rem] rounded-xl border-t p-5 flex flex-col">
-                                <p className="font-medium text-lg" name="name" id="name">Pizza de {nome} </p>
-                                <label className="line-clamp-2 mt-5">Crie uma linda descrição para a nova pizza do catálogo</label>
-                                <input onChange={(e) => setDesc(e.target.value)} type="text" className="rounded-xl border p-2 " placeholder="Saborosos cogumelos regrados em azeite de oliva combinados com um saborosíssimo que..."/>
+                                <p className="font-medium text-lg" name="name" id="name">{nome}</p>
+                                <label className="line-clamp-2 mt-5">Crie uma descrição para a nova bebida do catálogo</label>
+                                <input onChange={(e) => setDesc(e.target.value)} type="text" className="rounded-xl border p-2 " placeholder="Coca-Cola sabor original contém água gaseificada, açúcar, extrato de noz de cola, cafeí..."/>
                                 <p className="text-gray-500 mt-3">A partir de</p>
-                                <input onChange={Component} placeholder="R$42.50" type="text" ref={valor} className="rounded-xl border p-2 dinheiro"/>
-                                <button className="text-white font-medium bg-red-700 rounded-full px-5 py-1 mt-2" type="submit">Registrar novo sabor</button>
+                                <input onChange={Component} placeholder="R$8.50" type="text" ref={valor} className="rounded-xl border p-2 dinheiro"/>
+                                <button className="text-white font-medium bg-red-700 rounded-full px-5 py-1 mt-2" type="submit">Registrar nova bebida</button>
                             </div>
                         </div>  
                     </div>
@@ -99,4 +99,4 @@ const CriaPizzas = () => {
     );
 };  
 
-export default CriaPizzas
+export default CriaBebidas
