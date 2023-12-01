@@ -14,7 +14,7 @@ const CriaBebidas = () => {
     
     const Component = () => {  
         $(() => {
-            $('.dinheiro').mask('R$#.00');
+            $('.dinheiro').mask('R$##.00');
         });
         setPreco($('.dinheiro').cleanVal());
     };  

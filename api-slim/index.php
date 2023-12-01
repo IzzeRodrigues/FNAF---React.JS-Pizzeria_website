@@ -125,12 +125,13 @@ function getPedidoFuncionario(Request $request, Response $response, array $args)
 function getBebidasNovas(Request $request, Response $response, array $args){
     $novaBebida = $request->getParsedBody();
         // $img =  $_FILES["body"]["Img"];
-        // $desc =  $novaBebida["body"]["Desc"];
+        $desc =  $novaBebida["body"]["Desc"];
         $nome =  $novaBebida["body"]["Nome"];
         $preco =  $novaBebida["body"]["Preco"];
-        // $valorBebida = $preco/10;
-
-        $sql = "INSERT INTO tb_bebidas(nm_bebida, vl_bebida) VALUES('$nome', '$preco')";
+        // $valorBebida = floatval($preco)/100;
+        // var_dump($preco);
+        // var_dump($valorBebida);
+        $sql = "INSERT INTO tb_bebidas(nm_bebida, vl_bebida, dc_desc) VALUES('$nome', '$preco', '$desc')";
         $stmt = getConn()->query($sql);
 };
 
