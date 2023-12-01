@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Nov-2023 às 02:46
+-- Tempo de geração: 01-Dez-2023 às 01:13
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -22,6 +22,38 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `db_freddys` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `db_freddys`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_bebidas`
+--
+
+CREATE TABLE `tb_bebidas` (
+  `id_bebidas` int(11) NOT NULL,
+  `nm_bebida` varchar(20) NOT NULL,
+  `vl_bebida` varchar(5) NOT NULL,
+  `dc_desc` varchar(52) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_bebidas`
+--
+
+INSERT INTO `tb_bebidas` (`id_bebidas`, `nm_bebida`, `vl_bebida`, `dc_desc`) VALUES
+(1, '2Litros de Ibituruna', '', 'A melhor bebida da terra'),
+(2, '2Litros de Ibituruna', '', 'A melhor bebida da terra'),
+(3, '2Litros de Ibituruna', '', 'aaaaaaaaaa'),
+(4, 'asdasdasd', 'R$4.6', 'dasasdasd'),
+(5, 'Varias cocas colas', 'R$0.0', 'muitas unidades de cocacola'),
+(6, 'dasdasd', 'R$2.2', 'sadasda'),
+(7, 'asdasda', 'R$2.4', 'sdasdasd'),
+(8, 'dasda', '', 'dsadas'),
+(9, 'Varias cocas colas', '234', 'rwerwer'),
+(10, 'terterteterte', '122', 'rtedrtete'),
+(11, 'fsdfsdfsdf', '5555', 'sdfsdfsdf'),
+(12, 'asdasda', '1212', 'dsasda'),
+(13, 'asdasda', '3000', 'asdasdads');
 
 -- --------------------------------------------------------
 
@@ -50,8 +82,8 @@ CREATE TABLE `tb_clientes` (
 INSERT INTO `tb_clientes` (`id_cadastrado`, `nm_usuario`, `nm_email_usuario`, `cd_senha_usuario`, `priv_usuario`, `cd_cep`, `nm_rua`, `cd_numero_endereco`, `nm_bairro`, `nm_cidade`, `nm_estado`) VALUES
 (8, 'isabelle', 'isabelle@email.com', '123', '', '', '', '', '', '', ''),
 (10, 'lucas', 'lucas@email.com', '123', 'funcionario', '', '', '', '', '', ''),
-(11, 'Ahamad', 'aasrfafqw@email.com', '123', 'funcionario', '', '', '', '', '', ''),
-(12, 'takashi', 'takashi@email.com', '123', 'cliente', '', '', '', '', '', '');
+(12, 'takashi', 'takashi@email.com', '123', 'cliente', '', '', '', '', '', ''),
+(14, 'Ahamad', 'amaji@email.com', '123', 'cliente', '11340000', 'Rua Frei Gaspar', '541', 'Parque São Vicente', 'São Vicente', 'SP');
 
 -- --------------------------------------------------------
 
@@ -70,7 +102,12 @@ CREATE TABLE `tb_pedidos` (
 --
 
 INSERT INTO `tb_pedidos` (`id_pedido`, `nm_pedido`, `vl_pedido`) VALUES
-(6, 'Frango e Requeijão', '39.90');
+(6, 'Frango e Requeijão', '39.90'),
+(7, 'Frango e Requeijão', '39.90'),
+(8, 'Frango e Requeijão', '39.90'),
+(9, 'Portuguesa', '35.00'),
+(10, 'Pepperoni', '45.00'),
+(11, 'Parmesao', '99.90');
 
 -- --------------------------------------------------------
 
@@ -93,11 +130,19 @@ CREATE TABLE `tb_pizzas` (
 INSERT INTO `tb_pizzas` (`id_pizza`, `nm_pizza`, `dc_pizza`, `img_pizza`, `vl_pizza`) VALUES
 (1, 'Frango e Requeijão', 'Pizza de Frango com Requeijão Trem Bao, praticidade e sabor para o seu dia!', 'src/assets/images/frango-e-requeijao-v1.jpg', '39.90'),
 (2, 'Portuguesa', 'As cores do recheio lembravam as da bandeira de Portugal, por isso foi batizada de portuguesa', 'src/assets/images/brasileira.jpg', '35.00'),
-(3, 'Pepperoni', 'A grande diferença do preparo da calabresa para a pepperoni, é que a calabresa tem em seu preparo um', 'src/assets/images/pepper.jpg', '45.00');
+(3, 'Pepperoni', 'A grande diferença do preparo da calabresa para a pepperoni, é que a calabresa tem em seu preparo um', 'src/assets/images/pepper.jpg', '45.00'),
+(4, 'Parmesao', 'É uma pizza, e não tem parmesão.', '', '99.90'),
+(5, 'ddasdsada', 'dsadas', '', '32.14');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `tb_bebidas`
+--
+ALTER TABLE `tb_bebidas`
+  ADD PRIMARY KEY (`id_bebidas`);
 
 --
 -- Índices para tabela `tb_clientes`
@@ -122,22 +167,28 @@ ALTER TABLE `tb_pizzas`
 --
 
 --
+-- AUTO_INCREMENT de tabela `tb_bebidas`
+--
+ALTER TABLE `tb_bebidas`
+  MODIFY `id_bebidas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT de tabela `tb_clientes`
 --
 ALTER TABLE `tb_clientes`
-  MODIFY `id_cadastrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_cadastrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `tb_pedidos`
 --
 ALTER TABLE `tb_pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `tb_pizzas`
 --
 ALTER TABLE `tb_pizzas`
-  MODIFY `id_pizza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pizza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
